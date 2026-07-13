@@ -960,23 +960,44 @@ html[data-theme="light"] .button-primary {
 }
 
 .language-code {
-  display: grid;
-  width: 44px;
-  height: 44px;
-  place-items: center;
+  display: flex;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   border: 1px solid var(--line-strong);
   border-radius: 12px;
-  color: var(--cyan);
-  font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 12px;
+  background: linear-gradient(145deg, rgba(96, 227, 255, 0.08), var(--surface-alt));
 }
 
-.language-card strong,
-.language-card div span {
+.language-code-main {
+  color: var(--cyan);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.language-code-label {
+  margin-top: 5px;
+  color: var(--muted);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 7px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.language-details strong,
+.language-details > span {
   display: block;
 }
 
-.language-card div span {
+.language-details > span {
   color: var(--muted);
   font-size: 12px;
 }
@@ -1458,22 +1479,27 @@ html[data-theme="light"] .button-primary {
               <div class="tag-list"><span>Cybersecurity</span><span>PCI DSS</span><span>ISO 27001</span><span>IAM</span><span>SIEM</span><span>DevSecOps</span></div>
             </article>
             <article class="expertise-card reveal reveal-delay">
-              <div class="expertise-label"><span aria-hidden="true">02</span><h3 data-i18n="expertise.infrastructure">Infraestrutura & Redes</h3></div>
+              <div class="expertise-label"><span aria-hidden="true">02</span><h3 data-i18n="expertise.offensiveDefense">Segurança Ofensiva & Defensiva</h3></div>
+              <p data-i18n="expertise.offensiveDefenseText">Pentest e avaliações de segurança com visão de Red Team, aliados a Blue Team, threat hunting, resposta a incidentes e evolução contínua dos controles.</p>
+              <div class="tag-list"><span>Pentest</span><span>Red Team</span><span>Blue Team</span><span>Vulnerability Assessment</span><span>Threat Hunting</span><span>Incident Response</span><span>MITRE ATT&CK</span><span>OWASP Top 10</span></div>
+            </article>
+            <article class="expertise-card reveal">
+              <div class="expertise-label"><span aria-hidden="true">03</span><h3 data-i18n="expertise.infrastructure">Infraestrutura & Redes</h3></div>
               <p data-i18n="expertise.infrastructureText">Windows Server, Linux, macOS, Active Directory, GPO, Cisco, MPLS, NOC e troubleshooting avançado.</p>
               <div class="tag-list"><span>Windows</span><span>Linux</span><span>Active Directory</span><span>GPO</span><span>Cisco</span><span>N2/N3</span></div>
             </article>
-            <article class="expertise-card reveal">
-              <div class="expertise-label"><span aria-hidden="true">03</span><h3 data-i18n="expertise.cloud">Cloud & Virtualização</h3></div>
+            <article class="expertise-card reveal reveal-delay">
+              <div class="expertise-label"><span aria-hidden="true">04</span><h3 data-i18n="expertise.cloud">Cloud & Virtualização</h3></div>
               <p data-i18n="expertise.cloudText">Arquiteturas e operações em AWS, Azure e Google Cloud, além de VMware, Hyper-V, Docker e Kubernetes.</p>
               <div class="tag-list"><span>AWS</span><span>Azure</span><span>GCP</span><span>Docker</span><span>Kubernetes</span></div>
             </article>
-            <article class="expertise-card reveal reveal-delay">
-              <div class="expertise-label"><span aria-hidden="true">04</span><h3 data-i18n="expertise.operations">Gestão & Operações</h3></div>
+            <article class="expertise-card reveal">
+              <div class="expertise-label"><span aria-hidden="true">05</span><h3 data-i18n="expertise.operations">Gestão & Operações</h3></div>
               <p data-i18n="expertise.operationsText">Liderança técnica, ITIL, ITSM, gestão de incidentes, continuidade, projetos, indicadores e melhoria contínua.</p>
               <div class="tag-list"><span>ITIL</span><span>ITSM</span><span>ServiceNow</span><span>DevOps</span><span>DevSecOps</span><span>Agile</span></div>
             </article>
-            <article class="expertise-card expertise-wide reveal">
-              <div class="expertise-label"><span aria-hidden="true">05</span><h3 data-i18n="expertise.data">Dados & Desenvolvimento</h3></div>
+            <article class="expertise-card reveal reveal-delay">
+              <div class="expertise-label"><span aria-hidden="true">06</span><h3 data-i18n="expertise.data">Dados & Desenvolvimento</h3></div>
               <p data-i18n="expertise.dataText">Python, SQL, bancos relacionais, C#, JavaScript, TypeScript, Node.js, .NET e APIs REST como ferramentas para integrar, automatizar e gerar visibilidade.</p>
               <div class="tag-list"><span>Python</span><span>SQL</span><span>PostgreSQL</span><span>JavaScript</span><span>TypeScript</span><span>Node.js</span><span>C#</span><span>.NET</span><span>REST APIs</span></div>
             </article>
@@ -1482,11 +1508,11 @@ html[data-theme="light"] .button-primary {
           <aside class="market-radar reveal" aria-labelledby="market-radar-title">
             <div class="market-radar-copy">
               <p class="market-radar-label" data-i18n="expertise.marketLabel">Radar de evolução</p>
-              <h3 id="market-radar-title" data-i18n="expertise.marketTitle">Tecnologias alinhadas às vagas de Cloud Security e DevSecOps</h3>
-              <p data-i18n="expertise.marketText">Frentes relevantes para aprofundamento contínuo, complementando a experiência já consolidada em segurança, infraestrutura, cloud e operações.</p>
+              <h3 id="market-radar-title" data-i18n="expertise.marketTitle">Segurança moderna: Cloud, AppSec e Zero Trust</h3>
+              <p data-i18n="expertise.marketText">Frentes em expansão para aprofundamento contínuo, conectando proteção de identidades, aplicações, workloads e dados à experiência já consolidada.</p>
             </div>
             <div class="tag-list market-tags" aria-label="Tecnologias para aprofundamento">
-              <span>Terraform / IaC</span><span>CI/CD</span><span>Git & GitHub Actions</span><span>PowerShell / Bash</span><span>IAM / RBAC</span><span>SIEM</span><span>Grafana / ELK</span><span>GitOps</span>
+              <span>Cloud Security</span><span>DevSecOps</span><span>AppSec · SAST/DAST</span><span>Zero Trust</span><span>IAM / PAM</span><span>EDR / XDR</span><span>SOAR</span><span>Detection Engineering</span><span>CSPM / CNAPP</span><span>Terraform / IaC</span>
             </div>
           </aside>
         </div>
@@ -1523,8 +1549,11 @@ html[data-theme="light"] .button-primary {
 
           <div class="language-card reveal">
             <div>
-              <span class="language-code">EN</span>
-              <div><strong data-i18n="education.english">Inglês intermediário-avançado</strong><span>Highbrow Idiomas</span></div>
+              <span class="language-code" aria-label="Idioma inglês">
+                <span class="language-code-main" aria-hidden="true">EN</span>
+                <span class="language-code-label" aria-hidden="true" lang="en">English</span>
+              </span>
+              <div class="language-details"><strong data-i18n="education.english">Inglês intermediário-avançado</strong><span>Highbrow Idiomas</span></div>
             </div>
             <div class="proficiency" aria-label="Proficiência: intermediário-avançado"><span></span><span></span><span></span><span></span><span class="muted"></span></div>
           </div>
@@ -1602,6 +1631,8 @@ const copy = {
       intro: "Uma visão ampla para diagnosticar dependências, reduzir exposição e manter a operação evoluindo.",
       security: "Segurança da Informação",
       securityText: "Gestão de vulnerabilidades, PCI DSS, ISO 27001, hardening, riscos, políticas, controles, IAM, firewall, VPN e SOC/SIEM.",
+      offensiveDefense: "Segurança Ofensiva & Defensiva",
+      offensiveDefenseText: "Pentest e avaliações de segurança com visão de Red Team, aliados a Blue Team, threat hunting, resposta a incidentes e evolução contínua dos controles.",
       infrastructure: "Infraestrutura & Redes",
       infrastructureText: "Windows Server, Linux, macOS, Active Directory, GPO, Cisco, MPLS, NOC e troubleshooting avançado.",
       cloud: "Cloud & Virtualização",
@@ -1611,8 +1642,8 @@ const copy = {
       data: "Dados & Desenvolvimento",
       dataText: "Python, SQL, bancos relacionais, C#, JavaScript, TypeScript, Node.js, .NET e APIs REST como ferramentas para integrar, automatizar e gerar visibilidade.",
       marketLabel: "Radar de evolução",
-      marketTitle: "Tecnologias alinhadas às vagas de Cloud Security e DevSecOps",
-      marketText: "Frentes relevantes para aprofundamento contínuo, complementando a experiência já consolidada em segurança, infraestrutura, cloud e operações.",
+      marketTitle: "Segurança moderna: Cloud, AppSec e Zero Trust",
+      marketText: "Frentes em expansão para aprofundamento contínuo, conectando proteção de identidades, aplicações, workloads e dados à experiência já consolidada.",
     },
     experience: {
       title: "Uma trajetória construída em ambientes críticos.",
@@ -1733,6 +1764,8 @@ const copy = {
       intro: "A broad perspective to diagnose dependencies, reduce exposure and keep operations evolving.",
       security: "Information Security",
       securityText: "Vulnerability management, PCI DSS, ISO 27001, hardening, risk, policies, controls, IAM, firewalls, VPN and SOC/SIEM.",
+      offensiveDefense: "Offensive & Defensive Security",
+      offensiveDefenseText: "Pentesting and security assessments with a Red Team perspective, combined with Blue Team, threat hunting, incident response and continuous control improvement.",
       infrastructure: "Infrastructure & Networks",
       infrastructureText: "Windows Server, Linux, macOS, Active Directory, GPO, Cisco, MPLS, NOC and advanced troubleshooting.",
       cloud: "Cloud & Virtualization",
@@ -1742,8 +1775,8 @@ const copy = {
       data: "Data & Development",
       dataText: "Python, SQL, relational databases, C#, JavaScript, TypeScript, Node.js, .NET and REST APIs used to integrate, automate and create visibility.",
       marketLabel: "Development radar",
-      marketTitle: "Technologies aligned with Cloud Security and DevSecOps roles",
-      marketText: "Relevant areas for continuous development, complementing established experience across security, infrastructure, cloud and operations.",
+      marketTitle: "Modern security: Cloud, AppSec and Zero Trust",
+      marketText: "Growing areas for continuous development, connecting identity, application, workload and data protection with established experience.",
     },
     experience: {
       title: "A career built in mission-critical environments.",

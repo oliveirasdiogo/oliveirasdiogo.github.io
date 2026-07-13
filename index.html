@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; connect-src 'none'; font-src 'none'; form-action 'none'; frame-src 'none'; img-src data:; media-src 'none'; object-src 'none'; script-src 'sha256-Ye/voRWyiBRQKyvQS1fIg4TaaXuUfxDM4IlE6b66THY=' 'sha256-8f78S+ukuQ160kHcafz175Z4GYwoFI2lJff/sognJCU='; script-src-attr 'none'; style-src 'sha256-xBVIgDa7f8XYNXu0/ZCd141DvHMiRBofcj0RaBTDX9I='; style-src-attr 'none'; worker-src 'none'; require-trusted-types-for 'script'" />
+    <meta name="referrer" content="no-referrer" />
     <meta
       name="description"
       content="Portfólio de Diogo Soares Oliveira, especialista em Segurança da Informação, Infraestrutura, Cloud e Governança de TI."
@@ -17,10 +19,11 @@
     <meta name="twitter:card" content="summary" />
     <title>Diogo Soares Oliveira | Segurança, Infraestrutura & Cloud</title>
     <script>
-      (() => {
-        const saved = localStorage.getItem("portfolio-theme");
-        document.documentElement.dataset.theme = saved === "light" ? "light" : "dark";
-      })();
+(() => {
+  const saved = localStorage.getItem("portfolio-theme");
+  document.documentElement.dataset.theme = saved === "light" ? "light" : "dark";
+})();
+
     </script>
     <style>
 :root {
@@ -1401,7 +1404,8 @@ html[data-theme="light"] .button-primary {
               </a>
             </div>
             <div class="hero-links">
-              <a href="https://www.linkedin.com/in/oliveirasdiogo/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+              <a href="https://www.linkedin.com/in/oliveirasdiogo/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/oliveirasdiogo" target="_blank" rel="noopener noreferrer" data-i18n-aria="a11y.githubProfile">GitHub <span aria-hidden="true">↗</span></a>
               <a href="mailto:diogo.soares_oliveira@outlook.com">E-mail <span aria-hidden="true">↗</span></a>
               <span>Poá, SP · Brasil</span>
             </div>
@@ -1571,7 +1575,8 @@ html[data-theme="light"] .button-primary {
             <a class="button button-primary" href="mailto:diogo.soares_oliveira@outlook.com">
               <span data-i18n="contact.email">Enviar e-mail</span><span aria-hidden="true">↗</span>
             </a>
-            <a class="button button-ghost" href="https://www.linkedin.com/in/oliveirasdiogo/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a class="button button-ghost" href="https://www.linkedin.com/in/oliveirasdiogo/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            <a class="button button-ghost" href="https://github.com/oliveirasdiogo" target="_blank" rel="noopener noreferrer" data-i18n-aria="a11y.githubProfile">GitHub <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
@@ -1601,6 +1606,7 @@ const copy = {
       darkTheme: "Ativar modo escuro",
       backToTop: "Voltar ao topo",
       portrait: "Retrato profissional de Diogo Soares Oliveira",
+      githubProfile: "Abrir perfil de Diogo Oliveira no GitHub",
     },
     nav: { about: "Sobre", expertise: "Expertise", experience: "Experiência", education: "Formação", contact: "Contato" },
     hero: {
@@ -1734,6 +1740,7 @@ const copy = {
       darkTheme: "Enable dark mode",
       backToTop: "Back to top",
       portrait: "Professional portrait of Diogo Soares Oliveira",
+      githubProfile: "Open Diogo Oliveira's GitHub profile",
     },
     nav: { about: "About", expertise: "Expertise", experience: "Experience", education: "Education", contact: "Contact" },
     hero: {
@@ -1866,41 +1873,66 @@ const menuToggle = document.querySelector("#menu-toggle");
 const nav = document.querySelector("#main-nav");
 let currentLanguage = localStorage.getItem("portfolio-language") === "en" ? "en" : "pt";
 
+function createTextElement(tagName, text, className = "") {
+  const element = document.createElement(tagName);
+  if (className) element.className = className;
+  element.textContent = text;
+  return element;
+}
+
 function renderExperience(dictionary) {
   const container = document.querySelector("#experience-list");
-  const mainItems = dictionary.experience.items
-    .map(
-      (item) => `
-        <article class="timeline-item reveal">
-          <p class="timeline-period">${item.period}</p>
-          <h3>${item.role}</h3>
-          <em class="timeline-company">${item.company}</em>
-          <ul>${item.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}</ul>
-        </article>`,
-    )
-    .join("");
+  const fragment = document.createDocumentFragment();
 
-  const archive = dictionary.experience.archive
-    .map(
-      ([role, company, period]) => `
-        <div class="archive-item">
-          <div><strong>${role}</strong><span>${company}</span></div>
-          <time>${period}</time>
-        </div>`,
-    )
-    .join("");
+  dictionary.experience.items.forEach((item) => {
+    const article = document.createElement("article");
+    article.className = "timeline-item reveal";
+    article.append(
+      createTextElement("p", item.period, "timeline-period"),
+      createTextElement("h3", item.role),
+      createTextElement("em", item.company, "timeline-company"),
+    );
 
-  container.innerHTML = `${mainItems}<p class="archive-label">${dictionary.experience.previous}</p><div class="career-archive reveal">${archive}</div>`;
+    const bullets = document.createElement("ul");
+    item.bullets.forEach((bullet) => bullets.append(createTextElement("li", bullet)));
+    article.append(bullets);
+    fragment.append(article);
+  });
+
+  fragment.append(createTextElement("p", dictionary.experience.previous, "archive-label"));
+  const archive = document.createElement("div");
+  archive.className = "career-archive reveal";
+
+  dictionary.experience.archive.forEach(([role, company, period]) => {
+    const item = document.createElement("div");
+    item.className = "archive-item";
+    const identity = document.createElement("div");
+    identity.append(createTextElement("strong", role), createTextElement("span", company));
+    item.append(identity, createTextElement("time", period));
+    archive.append(item);
+  });
+
+  fragment.append(archive);
+  container.replaceChildren(fragment);
 }
 
 function renderLearning(dictionary) {
-  document.querySelector("#education-list").innerHTML = dictionary.education.degrees
-    .map(([title, description]) => `<article class="learning-item"><h3>${title}</h3><p>${description}</p></article>`)
-    .join("");
+  const renderList = (selector, items) => {
+    const container = document.querySelector(selector);
+    const fragment = document.createDocumentFragment();
 
-  document.querySelector("#certification-list").innerHTML = dictionary.education.certs
-    .map(([title, description]) => `<article class="learning-item"><h3>${title}</h3><p>${description}</p></article>`)
-    .join("");
+    items.forEach(([title, description]) => {
+      const article = document.createElement("article");
+      article.className = "learning-item";
+      article.append(createTextElement("h3", title), createTextElement("p", description));
+      fragment.append(article);
+    });
+
+    container.replaceChildren(fragment);
+  };
+
+  renderList("#education-list", dictionary.education.degrees);
+  renderList("#certification-list", dictionary.education.certs);
 }
 
 function updateThemeLabel() {

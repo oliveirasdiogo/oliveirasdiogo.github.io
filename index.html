@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; connect-src 'none'; font-src 'none'; form-action 'none'; frame-src 'none'; img-src data:; media-src 'none'; object-src 'none'; script-src 'sha256-Ye/voRWyiBRQKyvQS1fIg4TaaXuUfxDM4IlE6b66THY=' 'sha256-IsQN4GgMItak4UFodEpWrfLWcQfpOguEnAEtHeAgyV0='; script-src-attr 'none'; style-src 'sha256-1EM+NEp3GbtIPcINsk3skwj9YkflZY/nWTcBPsIVqZA='; style-src-attr 'none'; worker-src 'none'; require-trusted-types-for 'script'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; connect-src 'none'; font-src 'none'; form-action 'none'; frame-src 'none'; img-src data:; media-src 'none'; object-src 'none'; script-src 'sha256-Ye/voRWyiBRQKyvQS1fIg4TaaXuUfxDM4IlE6b66THY=' 'sha256-ZOiBG42J2xSvsQXLUXCE2PZjHe0zCBU3/r+4FXKb+Yw='; script-src-attr 'none'; style-src 'sha256-1EM+NEp3GbtIPcINsk3skwj9YkflZY/nWTcBPsIVqZA='; style-src-attr 'none'; worker-src 'none'; require-trusted-types-for 'script'" />
     <meta name="referrer" content="no-referrer" />
     <meta
       name="description"
@@ -1406,7 +1406,7 @@ html[data-theme="light"] .button-primary {
           <span></span><span></span><span></span>
         </button>
 
-        <nav class="nav-links" id="main-nav" aria-label="Navegação principal">
+        <nav class="nav-links" id="main-nav" data-i18n-aria="a11y.mainNav" aria-label="Navegação principal">
           <a href="#sobre" data-i18n="nav.about">Sobre</a>
           <a href="#expertise" data-i18n="nav.expertise">Expertise</a>
           <a href="#experiencia" data-i18n="nav.experience">Experiência</a>
@@ -1439,7 +1439,7 @@ html[data-theme="light"] .button-primary {
               <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13Zm1.78 13.04H3.54V8.98H7.1v11.47ZM22.23 1H1.77C.79 1 0 1.77 0 2.72v18.56C0 22.23.79 23 1.77 23h20.46c.98 0 1.77-.77 1.77-1.72V2.72C24 1.77 23.21 1 22.23 1Z" />
             </svg>
           </a>
-          <div class="language-switcher" role="group" aria-label="Selecionar idioma">
+          <div class="language-switcher" role="group" data-i18n-aria="a11y.languageSelector" aria-label="Selecionar idioma">
             <button class="lang-button is-active" type="button" data-lang="pt" aria-pressed="true">PT</button>
             <button class="lang-button" type="button" data-lang="en" aria-pressed="false">EN</button>
           </div>
@@ -1473,8 +1473,8 @@ html[data-theme="light"] .button-primary {
             <div class="hero-links">
               <a href="https://www.linkedin.com/in/oliveirasdiogo/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
               <a href="https://github.com/oliveirasdiogo" target="_blank" rel="noopener noreferrer" data-i18n-aria="a11y.githubProfile">GitHub <span aria-hidden="true">↗</span></a>
-              <a href="mailto:diogo.soares_oliveira@outlook.com">E-mail <span aria-hidden="true">↗</span></a>
-              <span>Poá, SP · Brasil</span>
+              <a href="mailto:diogo.soares_oliveira@outlook.com"><span data-i18n="hero.email">E-mail</span> <span aria-hidden="true">↗</span></a>
+              <span data-i18n="hero.location">Poá, SP · Brasil</span>
             </div>
           </div>
 
@@ -1582,7 +1582,7 @@ html[data-theme="light"] .button-primary {
               <h3 id="market-radar-title" data-i18n="expertise.marketTitle">Segurança moderna: Cloud, AppSec e Zero Trust</h3>
               <p data-i18n="expertise.marketText">Frentes em expansão para aprofundamento contínuo, conectando proteção de identidades, aplicações, workloads e dados à experiência já consolidada.</p>
             </div>
-            <div class="tag-list market-tags" aria-label="Tecnologias para aprofundamento">
+            <div class="tag-list market-tags" data-i18n-aria="a11y.marketTechnologies" aria-label="Tecnologias para aprofundamento">
               <span>Cloud Security</span><span>DevSecOps</span><span>AppSec · SAST/DAST</span><span>Zero Trust</span><span>IAM / PAM</span><span>EDR / XDR</span><span>SOAR</span><span>Detection Engineering</span><span>CSPM / CNAPP</span><span>Terraform / IaC</span>
             </div>
           </aside>
@@ -1620,13 +1620,13 @@ html[data-theme="light"] .button-primary {
 
           <div class="language-card reveal">
             <div>
-              <span class="language-code" aria-label="Idioma inglês">
+              <span class="language-code" data-i18n-aria="a11y.englishLanguage" aria-label="Idioma inglês">
                 <span class="language-code-main" aria-hidden="true">EN</span>
                 <span class="language-code-label" aria-hidden="true" lang="en">English</span>
               </span>
               <div class="language-details"><strong data-i18n="education.english">Inglês intermediário-avançado</strong><span>Highbrow Idiomas</span></div>
             </div>
-            <div class="proficiency" aria-label="Proficiência: intermediário-avançado"><span></span><span></span><span></span><span></span><span class="muted"></span></div>
+            <div class="proficiency" data-i18n-aria="a11y.englishProficiency" aria-label="Proficiência em inglês: intermediário-avançado"><span></span><span></span><span></span><span></span><span class="muted"></span></div>
           </div>
         </div>
       </section>
@@ -1676,6 +1676,11 @@ const copy = {
       home: "Voltar ao início da página",
       githubProfile: "Abrir perfil de Diogo Oliveira no GitHub",
       linkedinProfile: "Abrir perfil de Diogo Oliveira no LinkedIn",
+      mainNav: "Navegação principal",
+      languageSelector: "Selecionar idioma",
+      marketTechnologies: "Tecnologias para aprofundamento",
+      englishLanguage: "Idioma inglês",
+      englishProficiency: "Proficiência em inglês: intermediário-avançado",
     },
     nav: { about: "Sobre", expertise: "Expertise", experience: "Experiência", education: "Formação", contact: "Contato" },
     hero: {
@@ -1685,6 +1690,8 @@ const copy = {
       lead: "Especialista em Segurança da Informação, Infraestrutura, Cloud e Governança de TI, com mais de 15 anos transformando ambientes complexos em operações mais seguras, resilientes e alinhadas ao negócio.",
       contact: "Vamos conversar",
       resume: "Baixar currículo",
+      email: "E-mail",
+      location: "Poá, SP · Brasil",
     },
     metrics: {
       years: "anos em tecnologia",
@@ -1707,7 +1714,7 @@ const copy = {
       security: "Segurança da Informação",
       securityText: "Gestão de vulnerabilidades, PCI DSS, ISO 27001, hardening, riscos, políticas, controles, IAM, firewall, VPN e SOC/SIEM.",
       offensiveDefense: "Segurança Ofensiva & Defensiva",
-      offensiveDefenseText: "Pentest e avaliações de segurança com visão de Red Team, aliados a Blue Team, threat hunting, resposta a incidentes e evolução contínua dos controles.",
+      offensiveDefenseText: "Testes de intrusão e avaliações de segurança sob a perspectiva de Red Team, combinados com práticas de Blue Team, threat hunting, resposta a incidentes e evolução contínua dos controles.",
       infrastructure: "Infraestrutura & Redes",
       infrastructureText: "Windows Server, Linux, macOS, Active Directory, GPO, Cisco, MPLS, NOC e troubleshooting avançado.",
       cloud: "Cloud & Virtualização",
@@ -1761,7 +1768,7 @@ const copy = {
           company: "Teleperformance",
           bullets: [
             "Suporte avançado N2/N3 ao ecossistema Apple, com foco em conectividade, segurança e problemas complexos.",
-            "Diagnóstico, investigação de causa-raiz e tratamento de incidentes conforme padrões e níveis de serviço.",
+            "Diagnóstico, investigação da causa raiz e tratamento de incidentes conforme padrões e níveis de serviço.",
           ],
         },
       ],
@@ -1783,7 +1790,7 @@ const copy = {
         ["Tecnólogo em Redes de Computadores", "Universidade Cruzeiro do Sul · Concluído em 2018"],
       ],
       certs: [
-        ["Cloud", "AWS Cloud Practitioner Foundational · Google Cloud Foundations · Formação Microsoft AZ-900 (SENAI)"],
+        ["Cloud", "AWS Certified Cloud Practitioner · Google Cloud Foundations · Formação Microsoft AZ-900 (SENAI)"],
         ["Redes", "CCNA v7 — Switching, Routing and Wireless Essentials (SENAI)"],
         ["Dados & Programação", "Formação Cientista de Dados · Python 3 · JavaScript e TypeScript"],
         ["Sistemas", "Administração de Servidores Windows · Montagem e Manutenção de Computadores (SENAI)"],
@@ -1799,7 +1806,7 @@ const copy = {
   en: {
     meta: {
       title: "Diogo Soares Oliveira | Security, Infrastructure & Cloud",
-      description: "Portfolio of Diogo Soares Oliveira, an Information Security, Infrastructure, Cloud and IT Governance specialist.",
+      description: "Portfolio of Diogo Soares Oliveira, a specialist in information security, infrastructure, cloud, and IT governance.",
     },
     a11y: {
       skip: "Skip to content",
@@ -1812,19 +1819,26 @@ const copy = {
       home: "Return to the top of the page",
       githubProfile: "Open Diogo Oliveira's GitHub profile",
       linkedinProfile: "Open Diogo Oliveira's LinkedIn profile",
+      mainNav: "Main navigation",
+      languageSelector: "Select language",
+      marketTechnologies: "Technologies for further development",
+      englishLanguage: "English language",
+      englishProficiency: "English proficiency: upper-intermediate",
     },
     nav: { about: "About", expertise: "Expertise", experience: "Experience", education: "Education", contact: "Contact" },
     hero: {
       eyebrow: "Technology with a business perspective",
-      titleA: "Security that sustains.",
+      titleA: "Security that protects.",
       titleB: "Technology that evolves.",
-      lead: "Information Security, Infrastructure, Cloud and IT Governance specialist with 15+ years of experience turning complex environments into safer, more resilient operations aligned with business goals.",
+      lead: "Specialist in information security, infrastructure, cloud, and IT governance, with 15+ years of experience turning complex environments into safer, more resilient operations aligned with business goals.",
       contact: "Let's talk",
       resume: "Download résumé",
+      email: "Email",
+      location: "Poá, SP · Brazil",
     },
     metrics: {
       years: "years in technology",
-      support: "support and critical incidents",
+      support: "advanced support and critical incident response",
       leadershipValue: "Leadership",
       leadership: "teams, projects and operations",
     },
@@ -1852,9 +1866,9 @@ const copy = {
       operationsText: "Technical leadership, ITIL, ITSM, incident management, continuity, projects, metrics and continuous improvement.",
       data: "Data & Development",
       dataText: "Python, SQL, relational databases, C#, JavaScript, TypeScript, Node.js, .NET and REST APIs used to integrate, automate and create visibility.",
-      marketLabel: "Development radar",
+      marketLabel: "Professional development focus",
       marketTitle: "Modern security: Cloud, AppSec and Zero Trust",
-      marketText: "Growing areas for continuous development, connecting identity, application, workload and data protection with established experience.",
+      marketText: "High-growth areas for continued development, building on established experience in protecting identities, applications, workloads, and data.",
     },
     experience: {
       title: "A career built in mission-critical environments.",
@@ -1887,8 +1901,8 @@ const copy = {
           company: "Flipside",
           bullets: [
             "Led and developed a multidisciplinary technical team, aligning priorities with business objectives.",
-            "Acted as the senior N3 technical reference for critical infrastructure, network, systems and security incidents.",
-            "Managed projects, integrations, performance indicators, contingency and continuity from roadmap through delivery.",
+            "Served as the senior Level 3 (N3) escalation point for critical incidents involving infrastructure, networks, systems, and security.",
+            "Managed projects, integrations, performance indicators, contingency planning, and business continuity—from roadmap to delivery.",
           ],
         },
         {
@@ -1911,7 +1925,7 @@ const copy = {
     },
     education: {
       title: "Continuous learning, practical application.",
-      academic: "Academic education",
+      academic: "Academic background",
       certifications: "Courses & certifications",
       english: "Upper-intermediate English",
       degrees: [
@@ -1919,14 +1933,14 @@ const copy = {
         ["Associate Degree in Computer Networks", "Universidade Cruzeiro do Sul · Completed in 2018"],
       ],
       certs: [
-        ["Cloud", "AWS Cloud Practitioner Foundational · Google Cloud Foundations · Microsoft AZ-900 program (SENAI)"],
+        ["Cloud", "AWS Certified Cloud Practitioner · Google Cloud Foundations · Microsoft AZ-900 program (SENAI)"],
         ["Networks", "CCNA v7 — Switching, Routing and Wireless Essentials (SENAI)"],
         ["Data & Programming", "Data Scientist program · Python 3 · JavaScript and TypeScript"],
         ["Systems", "Windows Server Administration · Computer Assembly and Maintenance (SENAI)"],
       ],
     },
     contact: {
-      title: "Shall we make the next challenge safer and more resilient?",
+      title: "Let's make your next challenge safer and more resilient.",
       text: "I'm available to discuss consulting, security, infrastructure, cloud, governance and technical leadership.",
       email: "Send an email",
     },
